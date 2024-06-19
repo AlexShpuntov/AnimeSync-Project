@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AnimeSync - Anime Details</title>
+  <link rel="stylesheet" href="/css/anime-information.css">
+</head>
+<body>
+  <%- include('partials/header'); %>
+  <main>
+    <input type="hidden" id="animeId" value="<%= anime._id %>"/>
+    <section class="anime-details">
+      <div class="anime-info">
+        <div class="cover-rating">
+          <h1><%= anime.title %></h1>
+          <img src="<%= anime.imageUrl %>" alt="<%= anime.title %>" class="anime-poster">
+          <div class="anime-rating">
+            <% if (anime.ratings && anime.ratings.length > 0) { %>
+              <p>Rating for the anime: <%= anime.ratings[0].toFixed(1) %></p>
+            <% } else { %>
+              <p>No ratings available</p>
+            <% } %>
+            <span class="favorite-icon <%= isFavorite ? 'selected' : '' %>" data-idAnime="<%= anime._id %>">&#x2661;</span>
+          </div>
+        </div>
+        <section class="right-section">
+          <div class="anime-description">
+            <h2>Overview</h2>
+            <p><%= anime.overview %></p>
+            <h2>Details</h2>
+            <ul>
+              <li><strong>Genre:</strong> <%= anime.details[0].genre.join(', ') %></li>
+              <% if (anime.details[0].episodes) { %>
+                <li><strong>Episodes:</strong> <%= anime.details[0].episodes %></li>
+              <% } %>
+              <li><strong>Studio:</strong> <%= anime.details[0].studio %></li>
+              <li><strong>Released:</strong> <%= anime.details[0].year %></li>
+            </ul>
+            <% if (anime.trailerUrl) { %>
+              <div class="anime-trailer">
+                <h2>Watch Trailer</h2>
+                <iframe width="560" height="315" src="<%= anime.trailerUrl %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+            <% } %>
+            <a href="/edit">
+              <button type="submit" >Edit Anime</button>
+            </a>
+          </div>
+          <div class="comment-form">
+            <div class="add-rating">
+              <h2>Add a Comment</h2>
+              <div class="rating-wrapper">
+                <span class="rating-star" data-rating="5">&#9733</span>
+                <span class="rating-star" data-rating="4">&#9733</span>
+                <span class="rating-star" data-rating="3">&#9733</span>
+                <span class="rating-star" data-rating="2">&#9733</span>
+                <span class="rating-star" data-rating="1">&#9733</span>
+              </div>
+            </div>
+            <form class="form-action" id="comment-form" action="/anime-info" method="post">
+              <textarea id="comment-area" name="comment" placeholder="Enter your comment" rows="4" required></textarea>
+              <input type="hidden" id="rating-input" name="rating">
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+          <% commentReviews.forEach((comment) => { %>
+            <div class="comment-box">
+              <div class="comment-header">
+                <h3><%= comment.commenter %></h3>
+                <div class="rating-container">
+                  <% for (let i = 1; i <= 5; i++) { %>
+                    <% if (i <= comment.rating) { %>
+                      <span class="star selected">&#9733;</span>
+                    <% } else { %>
+                      <span class="star">&#9733;</span>
+                    <% } %>
+                  <% } %>
+                </div>
+              </div>
+              <p><%= comment.text %></p>
+            </div>
+          <% }); %>
+        </section>
+      </div>
+    </section>
+  </main>
+  <script src="scripts/search.js"></script>
+  <script src="scripts/toggle-favorites.js"></script>
+  <script src="scripts/rating.js"></script>
+  <script src="scripts/comments.js"></script>
+</body>
+</html>

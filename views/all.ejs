@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimeSync</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <%- include('partials/header'); %>
+    <main>
+        <h3>List of All Available Anime</h3>
+        <div class="anime">
+            <% for (let i = 0; i < anime.length; i++) { %>
+                <div class="anime-cover" data-idAnime="<%= anime[i]._id %>">
+                    <img src="<%= anime[i].imageUrl %>" alt="<%= anime[i].title %>">
+                    <h2><%= anime[i].title %></h2>
+                </div>
+            <% if ((i + 1) % 3 === 0 && i !== anime.length - 1) { %>
+                </div><div class="anime">
+            <% }} %>
+        </div>
+    </main>
+    <script src="scripts/anime-info.js"></script>
+    <script src="scripts/search.js"></script>
+</body>
+</html>

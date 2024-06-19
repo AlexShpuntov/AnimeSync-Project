@@ -1,0 +1,260 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #2b2e35;
+  color: #ffffff;
+}
+
+header {
+  background-color: #2b2e35;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #839df8;
+  font-weight: bold;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-form input[type="text"] {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.search-form button {
+  background-color: #7891f4;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-form button:hover {
+  background-color: #6d85f0;
+}
+
+.anime-details {
+  padding: 50px;
+  text-align: left;
+}
+
+.anime-details h1 {
+  color: #839df8;
+}
+
+.anime-info {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+}
+
+.cover-rating {
+  text-align: center;
+  text-wrap: balance;
+  width: 204px;
+}
+
+.anime-poster {
+  height: 300px;
+  border: 2px solid #839df8;
+}
+
+.anime-rating {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.anime-rating span {
+  margin-top: 6px;
+}
+
+.anime-description {
+  max-width: 600px;
+}
+
+.anime-description h2 {
+  color: #637aed;
+}
+
+.anime-description ul {
+  list-style: none;
+  padding: 0;
+}
+
+.anime-description ul li {
+  margin: 10px 0;
+}
+
+.anime-trailer {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.favorite-icon {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.favorite-icon.selected {
+  color: #ff0000;
+}
+
+.comment-form {
+  margin-top: 20px;
+}
+
+.comment-form h2 {
+  margin-bottom: 10px;
+}
+
+.add-rating {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rating-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-left: 20px;
+}
+
+.rating-wrapper span {
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+  font-size: 30px;
+}
+
+.rating-wrapper span:hover {
+  color: #ff0;
+  transform: scale(1.3);
+}
+
+.rating-wrapper span:hover ~ span {
+  color: #ff0;
+}
+
+.rating-star.selected {
+  color: #ff0;
+}
+
+.rating-star.selected ~ span {
+  color: #ff0;
+}
+
+.rating-star {
+  font-size: 24px;
+  cursor: pointer;
+  color: #ccc;
+}
+
+.form-action {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-action textarea {
+  width: calc(100% - 22px);
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #3a3f47;
+  color: #fff;
+}
+
+button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.anime-trailer {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.comment-form textarea,
+.comment-form button {
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 80px;
+  max-height: 200px;
+}
+
+.comment-box {
+  background-color: #3a3f47;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.comment-header h3 {
+  margin: 0;
+}
+
+.rating-container {
+  display: flex;
+  gap: 5px;
+}
+
+.rating-container .star {
+  font-size: 20px;
+  color: #ccc;
+}
+
+.rating-container .star.selected {
+  color: #ff0;
+}

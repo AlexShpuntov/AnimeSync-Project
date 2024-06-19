@@ -1,0 +1,23 @@
+<header>
+  <a href="/">
+    <img src="/images/logo-white.png" alt="AnimeSync" class="logo">
+  </a>
+  <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/all">List of Anime</a></li>
+        <% if (user) { %>
+          <li><a>Welcome, <%= user.name %></a></li>
+          <li><a href="/logout">Log Out</a></li>
+          <li><a href="/add">Add anime</a></li>
+        <% } else { %>
+          <li><a href="/signup">Sign Up</a></li>
+          <li><a href="/login">Log In</a></li>
+        <% } %>
+      </ul>
+  </nav>
+  <form class="search-form">
+    <input type="text" id="search-input" placeholder="Search...">
+    <button type="submit">Search</button>
+  </form>
+</header>

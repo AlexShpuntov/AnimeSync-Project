@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #2b2e35;
+  color: #ffffff;
+}
+
+header {
+  background-color: #637aed;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-form input[type="text"] {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.search-form button {
+  background-color: #7891f4;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-form button:hover {
+  background-color: #6d85f0;
+}
+
+main {
+  padding: 20px;
+}
+
+.hero {
+  text-align: center;
+  background-color: #3a3f47;
+  padding: 50px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.hero h2 {
+  margin: 0;
+  font-size: 36px;
+}
+
+.hero p {
+  font-size: 18px;
+}
+
+.anime {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.anime-cover {
+  background-color: #3a3f47;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  width: 200px;
+  padding: 10px;
+  transition: transform 0.3s;
+}
+
+.anime-cover img {
+  width: 100%;
+  height: auto;
+  border-bottom: 2px solid #637aed;
+}
+
+.anime-cover h2 {
+  font-size: 18px;
+  margin: 10px 0 0;
+}
+
+.anime-cover:hover {
+  transform: scale(1.05);
+}
+
+h3 {
+  text-align: center;
+  margin-top: 40px;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= edit ? 'Edit current anime page' : 'Add an anime page' %></title>
+  <link rel="stylesheet" href="/css/add-edit.css">
+</head>
+<body>
+  <header>
+    <img src="/images/logo-white.png" alt="AnimeSync" class="logo">
+  </header>
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="columns">
+          <h2><%= edit ? 'Edit Anime' : 'Add Anime' %></h2>
+          <form method="POST" action="<%= edit ? '/edit' : '/add' %>">
+            <% if (edit) { %>
+              <input type="hidden" id="animeId" value="<%= anime._id %>"/>
+            <% } %>
+            <p>
+              <label for="name">Anime Title</label>
+              <input type="text" class="form-control" name="animeTitle" value="<%= edit ? anime.title : '' %>" required/>
+            </p>
+            <p>
+              <label for="image">Title Image</label>
+              <input type="text" class="form-control" name="animeImage" value="<%= edit ? anime.imageUrl : '' %>" required/>
+            </p>
+            <p>
+              <label for="overview">Overview</label>
+              <textarea id="comment-area" class="form-control" name="animeOverview"  rows="6" required><%= edit ? anime.overview : '' %></textarea>
+            <p id="detailsContainer">
+              <label for="details">Details</label>
+              <% if (edit) { %>
+                <% anime.details.forEach((detail) => { %>
+                  <p class="detail">
+                    <input type="text" placeholder="Genre" class="form-control" name="detailGenre" value="<%= detail.genre.join(', ') %>" required/>
+                    <input type="text" placeholder="Episodes" class="form-control" name="detailEpisodes" value="<%= detail.episodes %>"/>
+                    <input type="text" placeholder="Studio" class="form-control" name="detailStudio" value="<%= detail.studio %>"/>
+                    <input type="text" placeholder="Released" class="form-control" name="detailReleaseDate" value="<%= detail.year %>"/>
+                  </p>
+                  <p>
+                    <label for="trailer">Anime Trailer</label>
+                    <input type="text" class="form-control" name="animeTrailer" value="<%= edit ? anime.trailerUrl : '' %>" required/>
+                  </p>
+                <% }); %>
+              <% } else { %>
+                <p class="detail">
+                  <input type="text" placeholder="Genre" class="form-control" name="detailGenre" value="" required/>
+                  <input type="text" placeholder="Episodes" class="form-control" name="detailEpisodes" value=""/>
+                  <input type="text" placeholder="Studio" class="form-control" name="detailStudio" value=""/>
+                  <input type="text" placeholder="Released" class="form-control" name="detailReleaseDate" value=""/>
+                </p>
+                <p>
+                  <label for="trailer">Anime Trailer</label>
+                  <input type="text" class="form-control" name="animeTrailer" value="<%= edit ? anime.trailerUrl : '' %>" required/>
+                </p>
+              <% } %>
+            </p>
+            <p>
+              <button id="add-edit"><%= edit ? 'Edit Anime' : 'Add Anime' %></button>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
