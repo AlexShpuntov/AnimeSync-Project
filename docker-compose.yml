@@ -1,21 +1,24 @@
 version: '3.4'
 
 services:
-  inzynieriaoprogramowania:
-    image: inzynieriaoprogramowania
+  app:
     build:
       context: .
-      dockerfile: ./Dockerfile
-    environment:
-      NODE_ENV: production
+      dockerfile: Dockerfile
     ports:
-      - 3000:3000
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
     volumes:
       - .:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - mongodb
+
   mongodb:
     image: mongo:latest
     ports:
-      - 27017:27017
+      - "27017:27017"
     volumes:
       - data:/data/db
 
