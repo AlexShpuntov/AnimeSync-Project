@@ -102,7 +102,10 @@ exports.postAddingAnime = async (req, res) => {
     const result = await AnimeList.insertMany(anime);
     res.status(201).redirect(`/anime-info?id=${ result[0]._id }`);
   } catch (error) {
-    res.status(500).json({ message: 'Error posting anime' });
+    console.error('Error posting anime:', error);
+    if (!res.headersSent) {
+      res.status(500).json({ message: 'Error posting anime' });
+    }
   }
 };
 

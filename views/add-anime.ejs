@@ -38,9 +38,9 @@
                 <% anime.details.forEach((detail) => { %>
                   <p class="detail">
                     <input type="text" placeholder="Genre" class="form-control" name="detailGenre" value="<%= detail.genre.join(', ') %>" required/>
-                    <input type="text" placeholder="Episodes" class="form-control" name="detailEpisodes" value="<%= detail.episodes %>"/>
+                    <input type="number" placeholder="Episodes" class="form-control" name="detailEpisodes" value="<%= detail.episodes %>"/>
                     <input type="text" placeholder="Studio" class="form-control" name="detailStudio" value="<%= detail.studio %>"/>
-                    <input type="text" placeholder="Released" class="form-control" name="detailReleaseDate" value="<%= detail.year %>"/>
+                    <input type="number" placeholder="Released" class="form-control" name="detailReleaseDate" value="<%= detail.year %>"/>
                   </p>
                   <p>
                     <label for="trailer">Anime Trailer</label>
@@ -50,9 +50,9 @@
               <% } else { %>
                 <p class="detail">
                   <input type="text" placeholder="Genre" class="form-control" name="detailGenre" value="" required/>
-                  <input type="text" placeholder="Episodes" class="form-control" name="detailEpisodes" value=""/>
+                  <input type="number" placeholder="Episodes" class="form-control" name="detailEpisodes"/>
                   <input type="text" placeholder="Studio" class="form-control" name="detailStudio" value=""/>
-                  <input type="text" placeholder="Released" class="form-control" name="detailReleaseDate" value=""/>
+                  <input type="number" placeholder="Released" class="form-control" name="detailReleaseDate" value=""/>
                 </p>
                 <p>
                   <label for="trailer">Anime Trailer</label>
